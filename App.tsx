@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { auth, db } from '../lib/firebase';
+import { auth, db } from './utils';
 import { handleFirestoreError, OperationType } from '../lib/db';
 import { 
   createUserWithEmailAndPassword, 
