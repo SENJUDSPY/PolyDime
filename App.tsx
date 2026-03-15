@@ -17,6 +17,13 @@ export interface AuthProps {
 }
 
 export function Auth({ message, isModal, initialIsLogin = true }: AuthProps) {
+  // Main App component for the application
+  const App = () => {
+    // You can add routing or additional layout here
+    return <Auth />;
+  };
+
+  export default App;
   const [isLogin, setIsLogin] = useState(initialIsLogin);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
