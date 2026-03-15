@@ -1,8 +1,20 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { AlertCircle, RefreshCw } from 'lucide-react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
 
 interface Props {
   children: ReactNode;
+}
+
+// Mount the app to the DOM
+const root = document.getElementById('root');
+if (root) {
+  ReactDOM.createRoot(root).render(
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
+  );
 }
 
 interface State {
