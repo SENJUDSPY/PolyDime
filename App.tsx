@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { auth, db } from './utils';
-import { handleFirestoreError, OperationType } from '../lib/db';
+
 import { 
   createUserWithEmailAndPassword, 
   signInWithEmailAndPassword, 
@@ -57,19 +57,15 @@ export function Auth({ message, isModal, initialIsLogin = true }: AuthProps) {
         await updateProfile(user, { displayName: name });
 
         const path = `users/${user.uid}`;
-        try {
-          await setDoc(doc(db, 'users', user.uid), {
-            name,
-            email,
-            collegeName,
-            rollNumber,
-            curriculum,
-            branch,
-            yearOfCourse
-          });
-        } catch (error) {
-          handleFirestoreError(error, OperationType.WRITE, path);
-        }
+        await setDoc(doc(db, 'users', user.uid), {
+          name,
+          email,
+          collegeName,
+          rollNumber,
+          curriculum,
+          branch,
+          yearOfCourse
+        });
       }
     } catch (err: any) {
       setError(err.message || 'An error occurred during authentication');
