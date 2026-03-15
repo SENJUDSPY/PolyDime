@@ -20,6 +20,9 @@ export function Auth({ message, isModal, initialIsLogin = true }: AuthProps) {
   const [isLogin, setIsLogin] = useState(initialIsLogin);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  // Email/Password fields
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 // Main App component for the application
 const App = () => {
   // You can add routing or additional layout here
@@ -27,10 +30,6 @@ const App = () => {
 };
 
 export default App;
-
-  // Email/Password fields
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
   // Profile fields
   const [name, setName] = useState('');
